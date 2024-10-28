@@ -1,12 +1,21 @@
 from fastapi import APIRouter, UploadFile, File
 from typing import List
 from fastapi.responses import StreamingResponse
-from services.image_service import compress_images_service
+from app.services.image_service import compress_images_service
 
 router = APIRouter()
 
 @router.post("/compress")
-async def compress_images_endpoint(files: List[UploadFile] = File(...)):
+async def compress_images_endpoint(
+    files: List[UploadFile] = File(
+        ...,
+        description="Envie uma ou várias imagens",
+        openapi_extra={
+            "type": "array",
+            "items": {"type": "string", "format": "binary"},
+        },
+    )
+):
     """
     Endpoint para receber imagens e retornar um arquivo ZIP com as imagens comprimidas.
     """

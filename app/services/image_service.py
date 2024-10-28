@@ -1,6 +1,6 @@
 from typing import List
 from fastapi import UploadFile
-from utils.image_compression import compress_images_to_zip
+from app.utils.image_compression import compress_images_to_zip
 
 async def compress_images_service(files: List[UploadFile]):
     """

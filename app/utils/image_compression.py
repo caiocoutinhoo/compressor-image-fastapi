@@ -17,7 +17,7 @@ async def compress_images_to_zip(files: List[UploadFile]) -> io.BytesIO:
 
             # Comprimir a imagem ajustando a qualidade
             output_io = io.BytesIO()
-            image.save(output_io, format='JPEG', quality=70)
+            image.save(output_io, format='JPEG', quality=50)
             output_io.seek(0)
 
             # Adicionar a imagem comprimida ao ZIP
