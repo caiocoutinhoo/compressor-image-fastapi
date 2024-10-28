@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  fastapi_app:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app  # Mapeia a pasta atual para o diretório de trabalho no container
+    environment:
+      - ENV=production  # Caso deseje adicionar variáveis de ambiente
