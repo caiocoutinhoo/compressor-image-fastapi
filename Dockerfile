@@ -8,10 +8,11 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Instala as dependências
-RUN pip install --no-cache-dir
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copia o código da aplicação para o container
 COPY . .
+COPY img ./img
 
 # Expõe a porta que a aplicação usará
 EXPOSE 8000
